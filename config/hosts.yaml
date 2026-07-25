@@ -1,0 +1,12 @@
+hosts:
+  raspberrypi-03:
+    role: server
+    services:
+      - audiobookshelf
+      - prometheus
+      - grafana
+
+  raspberrypi-dashboard:
+    role: dashboard
+    services:
+      - homepage

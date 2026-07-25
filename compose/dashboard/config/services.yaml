@@ -1,13 +1,20 @@
 - Server:
     - raspberrypi-03:
         description: Main homelab server
+        ping: raspberrypi-03
 
 - Services:
     - Audiobookshelf:
+        icon: audiobookshelf.png
         href: http://raspberrypi-03:13378
+        ping: raspberrypi-03
 
     - Grafana:
+        icon: grafana.png
         href: http://raspberrypi-03:3000
+        ping: raspberrypi-03
 
     - Prometheus:
+        icon: prometheus.png
         href: http://raspberrypi-03:9090
+        ping: raspberrypi-03
