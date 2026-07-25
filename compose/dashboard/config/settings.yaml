@@ -1,0 +1,9 @@
+title: Homelab Dashboard
+
+theme: dark
+
+color: slate
+
+headerStyle: clean
+
+hideVersion: true

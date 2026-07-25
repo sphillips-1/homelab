@@ -1,0 +1,13 @@
+- Server:
+    - raspberrypi-03:
+        description: Main homelab server
+
+- Services:
+    - Audiobookshelf:
+        href: http://raspberrypi-03:13378
+
+    - Grafana:
+        href: http://raspberrypi-03:3000
+
+    - Prometheus:
+        href: http://raspberrypi-03:9090
