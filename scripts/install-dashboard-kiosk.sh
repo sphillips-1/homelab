@@ -50,6 +50,7 @@ sudo tee -a "$LABWC_AUTOSTART" >/dev/null <<'AUTOSTART'
     done
 
     chromium \
+        --ozone-platform=wayland \
         --kiosk \
         --noerrdialogs \
         --disable-infobars \
