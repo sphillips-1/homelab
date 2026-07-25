@@ -51,9 +51,17 @@ echo "[INFO] Enabling Docker service"
 systemctl enable docker
 systemctl start docker
 
-echo "[INFO] Adding admin user to docker group"
+echo "[INFO] Adding current user to docker group"
 
-usermod -aG docker admin
+if [[ -n "${SUDO_USER:-}" ]]; then
+    usermod -aG docker "$SUDO_USER"
+else
+    echo "[WARN] Could not determine original user. Skipping docker group update."
+fi
+
+echo
+echo "[INFO] Docker group membership:"
+getent group docker
 
 echo
 echo "[INFO] Docker installation complete"
