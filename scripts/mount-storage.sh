@@ -31,11 +31,19 @@ else
 fi
 
 mount -a
-
 echo
 echo "[INFO] Mounted filesystems"
 
 df -h | grep "$AUDIOBOOK_MOUNT"
 
 echo
-echo "[INFO] Storage setup complete"
+echo "[INFO] Verifying audiobook directory structure"
+
+if [[ ! -d "$AUDIOBOOK_MOUNT/Books" ]]; then
+    echo "[ERROR] Audiobook storage mounted, but Books directory is missing"
+    echo "[ERROR] Check the drive before starting services"
+    exit 1
+fi
+
+echo "[INFO] Audiobook storage verified"
+echo "[INFO] Storage setup completed"
