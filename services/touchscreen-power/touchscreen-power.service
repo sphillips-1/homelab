@@ -3,8 +3,11 @@ Description=Touchscreen Backlight Manager
 After=graphical.target
 
 [Service]
-ExecStart=/usr/bin/python3 /opt/homelab/services/touchscreen-power/touchscreen-power.py
+Type=simple
+WorkingDirectory=/opt/homelab/services/touchscreen-power
+ExecStart=/opt/homelab/venvs/touchscreen-power/bin/python /opt/homelab/services/touchscreen-power/touchscreen-power.py
 Restart=always
+RestartSec=5
 User=root
 
 [Install]
