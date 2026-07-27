@@ -1,0 +1,9 @@
+device: /dev/input/event4
+
+backlight:
+  path: /sys/class/backlight/10-0045/brightness
+  active: 255
+  dim: 80
+  idle_dim_seconds: 300
+  idle_low_seconds: 900
+  low: 20

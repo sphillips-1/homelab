@@ -10,6 +10,7 @@ sudo "$SCRIPT_DIR/scripts/install-tailscale.sh"
 sudo "$SCRIPT_DIR/scripts/mount-storage.sh"
 sudo "$SCRIPT_DIR/scripts/create-directories.sh"
 sudo "$SCRIPT_DIR/scripts/deploy-services.sh"
+sudo "$SCRIPT_DIR/scripts/install-touchscreen-power.sh"
 
 echo
 echo "Homelab bootstrap complete!"
