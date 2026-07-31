@@ -2,6 +2,8 @@
     cpu: true
     memory: true
     uptime: true
-    disk:
-      - /
-      - /mnt/audiobooks
+    disk: /
+
+- disk:
+    /mnt/audiobooks:
+      label: Audiobooks
