@@ -35,7 +35,11 @@ echo "[INFO] Creating homelab directories"
 
 mkdir -p /opt/homelab
 
-chown -R admin:admin /opt/homelab
+if id admin >/dev/null 2>&1; then
+    chown -R admin:admin /opt/homelab
+else
+    echo "[WARN] User 'admin' was not found; skipping ownership change"
+fi
 
 echo "[INFO] Base setup complete"
 

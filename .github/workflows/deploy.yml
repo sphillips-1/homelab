@@ -1,0 +1,29 @@
+name: Deploy Homelab
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    environment: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Ensure deployment prerequisites
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y git bash curl
+
+      - name: Deploy to local runner
+        run: |
+          set -euo pipefail
+          cd "$GITHUB_WORKSPACE"
+          git pull --ff-only
+          bash ./bootstrap.sh
