@@ -35,26 +35,31 @@ Responsibilities
 
 - Docker host
 - Audiobookshelf
-- Homepage Dashboard
+- Touchscreen dashboard
 - Tailscale
 - Future monitoring services
 
 ---
 
-## Dashboard
+## Touchscreen Dashboard
 
 Hardware
 
 - Raspberry Pi 4
 - Official Raspberry Pi Touch Display v1
 
-The device includes a touchscreen, so the touchscreen power manager, kiosk configuration, and touchscreen disable step are required parts of the setup.
+The dashboard and its touchscreen-specific setup now live under the dedicated touchscreen directory. The deployment includes the Homepage UI, kiosk launcher configuration, and the touchscreen power manager.
 
 Purpose
 
 - Local status display
 - Server monitoring
 - Read-only kiosk interface
+
+Deployment location
+
+- [touchscreen/compose/dashboard/compose.yml](touchscreen/compose/dashboard/compose.yml)
+- [touchscreen/setup-touchscreen.sh](touchscreen/setup-touchscreen.sh)
 
 ---
 

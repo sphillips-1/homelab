@@ -22,8 +22,7 @@ fi
 echo "[INFO] Deploying compose stacks"
 
 for compose_file in \
-    "$PROJECT_ROOT/compose/audiobookshelf/compose.yml" \
-    "$PROJECT_ROOT/compose/dashboard/compose.yml"; do
+    "$PROJECT_ROOT/compose/audiobookshelf/compose.yml"; do
     if [[ -f "$compose_file" ]]; then
         echo "[INFO] Deploying $(basename "$(dirname "$compose_file")")"
         docker compose -f "$compose_file" up -d

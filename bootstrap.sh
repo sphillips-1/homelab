@@ -18,9 +18,7 @@ for script in \
     "$SCRIPT_DIR/scripts/install-docker.sh" \
     "$SCRIPT_DIR/scripts/install-tailscale.sh" \
     "$SCRIPT_DIR/scripts/mount-storage.sh" \
-    "$SCRIPT_DIR/scripts/create-directories.sh" \
-    "$SCRIPT_DIR/scripts/deploy-services.sh" \
-    "$SCRIPT_DIR/scripts/setup-touchscreen.sh"; do
+    "$SCRIPT_DIR/scripts/create-directories.sh"; do
     echo "[INFO] Running $(basename "$script")"
     $SUDO bash "$script"
 done

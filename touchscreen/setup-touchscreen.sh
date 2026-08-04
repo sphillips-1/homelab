@@ -9,9 +9,9 @@ fi
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SERVICE_NAME="touchscreen-power"
-INSTALL_DIR="/opt/homelab/services/${SERVICE_NAME}"
+INSTALL_DIR="/opt/homelab/touchscreen/services/${SERVICE_NAME}"
 VENV_DIR="/opt/homelab/venvs/${SERVICE_NAME}"
-SOURCE_DIR="$PROJECT_ROOT/services/${SERVICE_NAME}"
+SOURCE_DIR="$PROJECT_ROOT/touchscreen/services/${SERVICE_NAME}"
 RULE_FILE="/etc/udev/rules.d/99-disable-touchscreen.rules"
 LABWC_AUTOSTART="/etc/xdg/labwc/autostart"
 BACKUP_FILE="${LABWC_AUTOSTART}.backup"
