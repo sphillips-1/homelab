@@ -13,7 +13,7 @@ Use this when you want GitHub Actions to run directly on the homelab device.
 Run the script on the target device:
 
 ```bash
-sudo bash /opt/homelab/scripts/setup-github-runner.sh
+sudo bash /opt/homelab/shared/scripts/setup-github-runner.sh
 ```
 
 Set the required environment variables before running it:

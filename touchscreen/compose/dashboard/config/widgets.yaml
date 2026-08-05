@@ -1,9 +1,0 @@
-- resources:
-    cpu: true
-    memory: true
-    uptime: true
-    disk: /
-
-- disk:
-    /mnt/audiobooks:
-      label: Audiobooks

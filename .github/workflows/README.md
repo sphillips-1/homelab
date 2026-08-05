@@ -12,7 +12,7 @@ This repository now deploys through a GitHub self-hosted runner running on the h
 
 On the target device, install and register a self-hosted runner for this repository.
 
-The runner setup helper is available at [scripts/setup-github-runner.sh](../../scripts/setup-github-runner.sh).
+The runner setup helper is available at [shared/scripts/setup-github-runner.sh](../../shared/scripts/setup-github-runner.sh).
 
 ## Runner registration
 
@@ -26,7 +26,7 @@ Then run:
 export RUNNER_TOKEN="<registration token>"
 export RUNNER_NAME="raspberrypi-03"
 export RUNNER_LABELS="self-hosted,Linux,ARM64,homelab"
-sudo bash /opt/homelab/scripts/setup-github-runner.sh
+sudo bash /opt/homelab/shared/scripts/setup-github-runner.sh
 ```
 
 ## Workflow behavior

@@ -1,9 +1,0 @@
-title: Homelab
-layout:
-  Resources:
-    style: row
-    columns: 1
-
-headerStyle: clean
-
-hideVersion: true

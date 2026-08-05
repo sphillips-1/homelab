@@ -2,11 +2,11 @@
 
 set -euo pipefail
 
-PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
-if [[ -f "$PROJECT_ROOT/config/homelab.env" ]]; then
+if [[ -f "$PROJECT_ROOT/shared/templates/homelab.env" ]]; then
     # shellcheck disable=SC1091
-    source "$PROJECT_ROOT/config/homelab.env"
+    source "$PROJECT_ROOT/shared/templates/homelab.env"
 fi
 
 echo "[INFO] Verifying audiobook storage"
@@ -22,7 +22,7 @@ fi
 echo "[INFO] Deploying compose stacks"
 
 for compose_file in \
-    "$PROJECT_ROOT/compose/audiobookshelf/compose.yml"; do
+    "$PROJECT_ROOT/server/audiobookshelf/audiobookshelf/compose.yml"; do
     if [[ -f "$compose_file" ]]; then
         echo "[INFO] Deploying $(basename "$(dirname "$compose_file")")"
         docker compose -f "$compose_file" up -d

@@ -53,13 +53,9 @@ Reliability is more important than novelty.
 Repository layout should follow these conventions.
 
 ```
-compose/
-configs/
+server/
+shared/
 docs/
-hardware/
-images/
-scripts/
-stl/
 ```
 
 Avoid placing miscellaneous files in the repository root.

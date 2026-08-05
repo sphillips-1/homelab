@@ -3,9 +3,15 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-source "$PROJECT_ROOT/config/homelab.env"
+if [[ -f "$PROJECT_ROOT/shared/templates/homelab.env" ]]; then
+    # shellcheck disable=SC1091
+    source "$PROJECT_ROOT/shared/templates/homelab.env"
+else
+    echo "[ERROR] Shared environment template not found"
+    exit 1
+fi
 
 echo "[INFO] Mounting audiobook storage"
 

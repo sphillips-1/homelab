@@ -1,6 +1,0 @@
-- Server:
-    - raspberrypi-03:
-        description: Main homelab server
-        ping: raspberrypi-03
-        ping: raspberrypi-03
-        ping: raspberrypi-03
