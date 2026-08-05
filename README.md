@@ -5,12 +5,12 @@ This repository is now focused on the server role for the Raspberry Pi homelab.
 ## Repository layout
 
 ```text
-server/
+audiobooks/
 shared/
 docs/
 ```
 
-## Server role
+## Audiobooks role
 
 Host: raspberrypi-03
 
@@ -22,7 +22,7 @@ Responsibilities:
 - SSH and Git
 
 Bootstrap:
-- server/bootstrap.sh
+- audiobooks/bootstrap.sh
 
 ## Shared assets
 
@@ -36,9 +36,18 @@ Reusable content lives under shared/:
 
 1. Clone the repository
 2. Copy shared/templates/homelab.env to the target environment as needed
-3. Run server/bootstrap.sh on the server host
+3. Run `audiobooks/bootstrap.sh` on the server host
 4. Verify the deployed services
-5. Update the server compose or service files as needed
+5. Update the audiobooks compose or service files as needed
+
+## Test bootstrap workflow
+
+1. Clone the repository
+2. Copy shared/templates/homelab.env to the target environment as needed
+3. Run `audiobooks/test-bootstrap.sh` on the test host
+4. Verify Audiobookshelf starts successfully
+5. Run `audiobooks/backup.sh`
+6. Run `audiobooks/restore.sh <backup.tar.gz>` to verify restore
 
 ## Documentation
 

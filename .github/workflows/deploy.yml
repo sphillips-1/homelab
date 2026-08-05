@@ -26,4 +26,4 @@ jobs:
           set -euo pipefail
           cd "$GITHUB_WORKSPACE"
           git pull --ff-only
-          bash ./bootstrap.sh server
+          bash ./bootstrap.sh

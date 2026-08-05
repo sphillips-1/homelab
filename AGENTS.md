@@ -53,7 +53,7 @@ Reliability is more important than novelty.
 Repository layout should follow these conventions.
 
 ```
-server/
+audiobooks/
 shared/
 docs/
 ```
