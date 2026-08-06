@@ -15,13 +15,22 @@ tar -xzf "$ARCHIVE" -C "$TMP"
 
 BACKUP=$(find "$TMP" -mindepth 1 -maxdepth 1 -type d | head -1)
 
-docker stop audiobookshelf
+if [ -n "$(docker ps -q --filter 'name=audiobookshelf')" ]; then
+    docker stop audiobookshelf
+fi
 
 mkdir -p /opt/homelab/audiobookshelf/config
+mkdir -p /opt/homelab/audiobookshelf/metadata
+
+echo "[INFO] Restoring config and metadata"
 
 rsync -a --delete \
     "$BACKUP/config/" \
     /opt/homelab/audiobookshelf/config/
+
+rsync -a --delete \
+    "$BACKUP/metadata/" \
+    /opt/homelab/audiobookshelf/metadata/
 
 docker start audiobookshelf
 

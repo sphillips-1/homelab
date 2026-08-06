@@ -1,60 +1,60 @@
-# Audiobooks Test Guide
+# Audiobookshelf Recovery Guide
 
 This folder contains the Audiobookshelf role for the homelab.
-Use this guide when validating the backup and restore workflow on a test host.
 
-## Test bootstrap
+## Purpose
 
-Run the minimal test bootstrap to install Docker, mount storage, create directories, and deploy Audiobookshelf:
+This README documents the manual steps needed after a Raspberry Pi is rebuilt with a new SD card and the `homelab/audiobooks` role must be restored.
+
+## Prerequisites
+
+- Pi is booted and connected to the network
+- The audiobook storage drive is available and uses the configured UUID in `shared/templates/homelab.env`
+- `docker` and `docker compose` are installed, or the bootstrap script is available to install them
+- `git` may not be installed by default on the Pi; if needed install it or copy the repo manually
+
+## Manual recovery steps after a new SD card
+1. Open a shell on the Pi.
+
 
 ```bash
-cd ~/repos/homelab
-bash audiobooks/test-bootstrap.sh
+ssh admin@raspberrypi-03
+sudo apt update
+sudo apt install -y git
+cd ~
+git clone https://github.com/sphillips-1/homelab.git
+
+chmod +x audiobooks/bootstrap.sh 
+sudo bash scripts/mount-storage.sh
+sudo bash scripts/create-directories.sh
+sudo docker compose -f audiobookshelf/audiobookshelf/compose.yml up -d
+latest_backup=$(find /mnt/audiobooks/backups -maxdepth 1 -name 'audiobookshelf-*.tar.gz' -printf '%T@ %p\n' | sort -nr | cut -d' ' -f2- | head -n 1)
+sudo bash restore.sh "$latest_backup"
 ```
 
-> The test bootstrap is intentionally minimal. It installs only what is needed to verify the Audiobookshelf backup/restore flow.
+## Verify the service
 
-## Verify Audiobookshelf
-
-After bootstrap completes, verify the service is running:
+Check the container status:
 
 ```bash
 docker ps --filter "name=audiobookshelf"
 ```
 
-If the container is not running, inspect the logs:
+Inspect logs if the service is not running:
 
 ```bash
 docker logs audiobookshelf
 ```
 
-## Backup test
 
-Create a backup with:
-
-```bash
-cd ~/repos/homelab/audiobooks
-bash backup.sh
-```
-
-The script writes a `.tar.gz` archive into `/mnt/audiobooks/backups`.
-
-## Restore test
-
-Restore from a backup archive with:
-
-```bash
-cd ~/repos/homelab/audiobooks
-bash restore.sh /mnt/audiobooks/backups/audiobookshelf-<TIMESTAMP>.tar.gz
-```
-
-After restore completes, verify the container is running again:
-
-```bash
-docker ps --filter "name=audiobookshelf"
-```
 
 ## Notes
 
-- This guide is meant for validation on a test host such as a Pi Zero 2.
-- For production hosts, use `audiobooks/bootstrap.sh` instead of the test bootstrap.
+- `scripts/mount-storage.sh` expects the audiobook drive UUID and mount point from `shared/templates/homelab.env`.
+- If the Pi does not have the repository checked out, the manual recovery steps require that checkout first.
+- If the bootstrap script can run successfully, it is the preferred path for a full role setup:
+
+```bash
+cd ~/repos/homelab/audiobooks
+sudo bash bootstrap.sh
+```

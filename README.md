@@ -40,15 +40,6 @@ Reusable content lives under shared/:
 4. Verify the deployed services
 5. Update the audiobooks compose or service files as needed
 
-## Test bootstrap workflow
-
-1. Clone the repository
-2. Copy shared/templates/homelab.env to the target environment as needed
-3. Run `audiobooks/test-bootstrap.sh` on the test host
-4. Verify Audiobookshelf starts successfully
-5. Run `audiobooks/backup.sh`
-6. Run `audiobooks/restore.sh <backup.tar.gz>` to verify restore
-
 ## Documentation
 
 - docs/networking.md for networking details
