@@ -8,7 +8,7 @@ VENV_DIR="$APP_DIR/venv"
 REPO_DIR="$PWD"
 REQUIREMENTS_FILE="$REPO_DIR/requirements.txt"
 SERVICE_DIR="$REPO_DIR/scripts"
-PACKAGES=(git python3 python3-venv python3-pip ffmpeg bluez bluetooth curl jq)
+PACKAGES=(git python3 python3-venv python3-pip python3-bluez ffmpeg bluez bluetooth curl jq)
 
 info() { printf "[INFO] %s\n" "$1"; }
 error() { printf "[ERROR] %s\n" "$1" >&2; exit 1; }

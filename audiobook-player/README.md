@@ -86,7 +86,7 @@ The first script configures Git and SSH.
 Run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/sphillips-1/homelab/main/homelab/audiobook-player/bootstrap-git.sh | bash
+curl -fsSL https://raw.githubusercontent.com/sphillips-1/homelab/main/audiobook-player/bootstrap-git.sh | bash
 ```
 
 This script:
@@ -134,6 +134,7 @@ Installed automatically:
 * python3
 * python3-venv
 * python3-pip
+* python3-bluez
 * ffmpeg
 * bluez
 * bluetooth
