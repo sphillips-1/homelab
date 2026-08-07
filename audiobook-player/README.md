@@ -86,7 +86,7 @@ The first script configures Git and SSH.
 Run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_USER/audiobook-player/main/bootstrap-git.sh | bash
+curl -fsSL https://raw.githubusercontent.com/sphillips-1/homelab/main/homelab/audiobook-player/bootstrap-git.sh | bash
 ```
 
 This script:
