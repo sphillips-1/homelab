@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_URL="https://github.com/YOUR_USER/audiobook-player.git"
+REPO_URL="git@github.com:sphillips-1/homelab.git"
 TARGET_DIR="$HOME/audiobook-player"
 SSH_DIR="$HOME/.ssh"
 KEY_FILE="$SSH_DIR/id_rsa_audiobook_player"
@@ -49,4 +49,4 @@ echo
 info "Add the above public key to GitHub as a deploy key or SSH key before continuing."
 
 echo "When ready, clone the repository with:"
-echo "  git clone git@github.com:YOUR_USER/audiobook-player.git $TARGET_DIR"
+echo "  git clone $REPO_URL $TARGET_DIR"
